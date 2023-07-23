@@ -1,23 +1,16 @@
+import DownArrow from "@/Svg/DownArrow";
+import UpArrow from "@/Svg/UpArrow";
 import { NextPage } from "next";
 import Image from "next/image";
-import Logo from "../Svg/Logo";
 import Calender from "../Svg/Calender";
-import RightArrow from "@/Svg/RightArrow";
-import ProfilePic from "@/Svg/ProfilePic";
+import Logo from "../Svg/Logo";
 import Rashmin from "../app/Rashmin.png";
-import UpArrow from "@/Svg/UpArrow";
-import DownArrow from "@/Svg/DownArrow";
 import Button from "./components/Button";
 import ScheduleList from "./components/ScheduleList";
-import p1 from "@/app/1.jpeg";
-import p2 from "@/app/2.png";
-import p3 from "@/app/3.jpeg";
-import p4 from "@/app/4.jpeg";
-import p5 from "@/app/5.png";
 
-interface Props {}
+type Props = {};
 
-const Landing: NextPage<Props> = ({}) => {
+const Landing: NextPage<Props> = ({ }) => {
   return (
     <div className="w-full grid place-items-center">
       {/* top-design */}
@@ -78,10 +71,9 @@ const Landing: NextPage<Props> = ({}) => {
               City
             </label>
             <select className=" h-[42px] border rounded" name="city" id="city">
-              <option value="new-york">New York</option>
-              <option value="los-angeles">Los Angeles</option>
-              <option value="chicago">Chicago</option>
-              <option value="miami">Miami</option>
+              <option value="new-york">Pune</option>
+              <option value="los-angeles">Mumbai</option>
+              <option value="chicago">Other</option>
             </select>
           </div>
 
@@ -235,28 +227,54 @@ const Landing: NextPage<Props> = ({}) => {
               ]}
             />
           </div>
-          
         </div>
       </div>
 
       <div className="w-[390px]  bg-primary h-[740px]">
         <div className="text-center  my-8">
-            <Button />
-          </div>
+          <Button />
+        </div>
         <h2 className="text-secondary text-center text-4xl font-bold">
           Photo Gallery
         </h2>
-        <div className="w-full relative px-4 "><Image className="object-cover object-center h-[250px] w-[250px]  absolute top-[200px] left-[0px] rounded-full z-[5]" src={p1} width={250} height={250} alt=""/>
-      <Image className="object-cover h-[200px] z-[1] w-[200px] rounded-full absolute top-[50px]" src={p2} width={250} height={250} alt=""/>
-      <Image className="object-cover h-[195px] z-[2] w-[195px] rounded-full absolute top-[80px] left-[135px]" src={p3} width={250} height={250} alt=""/>
-      <Image className="object-cover h-[190px] z-[3] w-[190px] rounded-full absolute top-[210px] left-[200px]" src={p4} width={250} height={250} alt=""/>
-      <Image className="object-cover h-[190px] z-[4] w-[190px] rounded-full absolute top-[360px] left-[160px]"  src={p5} width={250} height={250} alt=""/>
-      
+        <div className="w-full relative px-4 ">
+          <Image
+            className="object-cover object-center h-[250px] w-[250px]  absolute top-[200px] left-[0px] rounded-full z-[5]"
+            src={'/2.png'}
+            width={250}
+            height={250}
+            alt=""
+          />
+          <Image
+            className="object-cover h-[200px] z-[1] w-[200px] rounded-full absolute top-[50px]"
+            src={'/2.png'}
+            width={250}
+            height={250}
+            alt=""
+          />
+          <Image
+            className="object-cover h-[195px] z-[2] w-[195px] rounded-full absolute top-[80px] left-[135px]"
+            src={'/3.jpeg'}
+            width={250}
+            height={250}
+            alt=""
+          />
+          <Image
+            className="object-cover h-[190px] z-[3] w-[190px] rounded-full absolute top-[210px] left-[200px]"
+            src={'/4.jpeg'}
+            width={250}
+            height={250}
+            alt=""
+          />
+          <Image
+            className="object-cover h-[190px] z-[4] w-[190px] rounded-full absolute top-[360px] left-[160px]"
+            src={'/5.png'}
+            width={250}
+            height={250}
+            alt=""
+          />
+        </div>
       </div>
-      </div>
-
-     
-    
     </div>
   );
 };
