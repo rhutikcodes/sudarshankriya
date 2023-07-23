@@ -1,7 +1,9 @@
+'use client';
 import DownArrow from "@/Svg/DownArrow";
 import UpArrow from "@/Svg/UpArrow";
 import { NextPage } from "next";
 import Image from "next/image";
+import { useState } from "react";
 import Calender from "../Svg/Calender";
 import Logo from "../Svg/Logo";
 import Rashmin from "../app/Rashmin.png";
@@ -11,6 +13,44 @@ import ScheduleList from "./components/ScheduleList";
 type Props = {};
 
 const Landing: NextPage<Props> = ({ }) => {
+  const [name, setName] = useState('');
+  const [whatsAppNumber, setWhatsAppNumber] = useState('');
+  const [city, setCity] = useState('');
+  const [hasDoneCourse, setHasDoneCourse] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [whatsAppNumberError, setWhatsAppNumberError] = useState('');
+  const [cityError, setCityError] = useState('');
+  const [hasDoneCourseError, setHasDoneCourseError] = useState('');
+
+
+  const handleSubmit = () => {
+    console.log({ name, whatsAppNumber, city, hasDoneCourse });
+    if (validate()) {
+      //TODO: add make
+    }
+  }
+
+  const validate = () => {
+    let status = true;
+    if (name === "") {
+      setNameError("*required field");
+      status = false;
+    }
+    if (whatsAppNumber === "") {
+      setWhatsAppNumberError("*required field");
+      status = false;
+    }
+    if (city === "") {
+      setCityError("*required field");
+      status = false;
+    }
+    if (hasDoneCourse === "") {
+      setHasDoneCourseError("*required field");
+      status = false;
+    }
+    return status;
+  };
+
   return (
     <div className="w-full grid place-items-center">
       {/* top-design */}
@@ -38,19 +78,25 @@ const Landing: NextPage<Props> = ({ }) => {
           </div>
         </div>
         {/* form-start */}
-        <form className="flex flex-col justify-center items-center space-y-4 mt-[20px]">
+        <div className="flex flex-col justify-center items-center space-y-4 mt-[20px]">
           <div className="flex flex-col w-[330px] ">
             <label className="text-sm mb-1 opacity-80" htmlFor="">
               Name
             </label>
             <input
-              className="border border-gray-200 rounded
-               h-[42px]"
+              className="border border-gray-200 rounded h-[42px] p-2"
               type="text"
-              name=""
-              id=""
-              placeholder="  Enter"
+              name="name"
+              id="name"
+              placeholder="  Enter Name"
+              value={name}
+              onChange={e => setName(e.target.value)}
             />
+            {nameError && (
+              <div className="xl:text-sm text-xs text-red-500">
+                {nameError}
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col w-[330px]">
@@ -58,23 +104,39 @@ const Landing: NextPage<Props> = ({ }) => {
               WhatsApp Number
             </label>
             <input
-              className=" h-[42px] border border-gray-200 rounded"
-              type="text"
-              name=""
-              id=""
-              placeholder="  Enter"
+              className=" h-[42px] border border-gray-200 rounded p-2"
+              name="whatsAppNumber"
+              id="whatsAppNumber"
+              placeholder="  Enter WhatsApp Number"
+              value={whatsAppNumber}
+              onChange={e => setWhatsAppNumber(e.target.value)}
             />
+            {whatsAppNumberError && (
+              <div className="xl:text-sm text-xs text-red-500">
+                {whatsAppNumberError}
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col w-[330px]">
             <label className="mb-1 opacity-80" htmlFor="city">
               City
             </label>
-            <select className=" h-[42px] border rounded" name="city" id="city">
-              <option value="new-york">Pune</option>
-              <option value="los-angeles">Mumbai</option>
-              <option value="chicago">Other</option>
+            <select className="h-[42px] border rounded"
+              name="city"
+              id="city"
+              value={city}
+              onChange={e => setCity(e.target.value)}>
+              <option value="" disabled selected>Select a City</option>
+              <option value="pune">Pune</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="other">Other</option>
             </select>
+            {cityError && (
+              <div className="xl:text-sm text-xs text-red-500">
+                {cityError}
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col w-[330px]">
@@ -82,18 +144,24 @@ const Landing: NextPage<Props> = ({ }) => {
               Have you done Art of Living Course?
             </label>
             <select
-              className=" h-[42px] border border-gray-200 rounded
-            "
+              className=" h-[42px] border border-gray-200 rounded"
               name="ArtOfLiving"
               id="ArtOfLiving"
+              value={hasDoneCourse}
+              onChange={e => setHasDoneCourse(e.target.value)}
             >
+              <option value="" disabled selected>Select an option</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
+            {hasDoneCourseError && (
+              <div className="xl:text-sm text-xs text-red-500">
+                {hasDoneCourseError}
+              </div>
+            )}
           </div>
-
-          <Button />
-        </form>
+          <Button onClick={handleSubmit} />
+        </div>
       </div>
 
       <div
@@ -177,7 +245,7 @@ const Landing: NextPage<Props> = ({ }) => {
           <li>Multiple accommodation options available</li>
         </ul>
         <div className="w-full flex justify-center my-5">
-          <Button />
+          <Button onClick={handleSubmit} />
         </div>
       </div>
 
@@ -232,7 +300,7 @@ const Landing: NextPage<Props> = ({ }) => {
 
       <div className="w-[390px]  bg-primary h-[740px]">
         <div className="text-center  my-8">
-          <Button />
+          <Button onClick={handleSubmit} />
         </div>
         <h2 className="text-secondary text-center text-4xl font-bold">
           Photo Gallery
