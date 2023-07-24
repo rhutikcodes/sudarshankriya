@@ -3,7 +3,8 @@ import DownArrow from "@/Svg/DownArrow";
 import UpArrow from "@/Svg/UpArrow";
 import { NextPage } from "next";
 import Image from "next/image";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import Calender from "../Svg/Calender";
 import Logo from "../Svg/Logo";
 import Rashmin from "../app/Rashmin.png";
@@ -13,6 +14,8 @@ import ScheduleList from "./components/ScheduleList";
 type Props = {};
 
 const Landing: NextPage<Props> = ({ }) => {
+  const router = useRouter()
+
   const [name, setName] = useState('');
   const [whatsAppNumber, setWhatsAppNumber] = useState('');
   const [city, setCity] = useState('');
@@ -22,11 +25,38 @@ const Landing: NextPage<Props> = ({ }) => {
   const [cityError, setCityError] = useState('');
   const [hasDoneCourseError, setHasDoneCourseError] = useState('');
 
+  useEffect(() => {
+    //@ts-ignore
+    window.fbq('track', 'Home Page Loaded');
+  }, []);
+
 
   const handleSubmit = () => {
     console.log({ name, whatsAppNumber, city, hasDoneCourse });
     if (validate()) {
-      //TODO: add make
+      //TODO: add make.com
+
+      //TODO: add whatsapp link
+      let whatsappLink;
+      if (city === 'pune' && hasDoneCourse === 'Yes') {
+        whatsappLink = ""
+      }
+      else if (city === 'pune' && hasDoneCourse === 'No') {
+        whatsappLink = ""
+      }
+      else if (city === 'mumbai' && hasDoneCourse === 'Yes') {
+        whatsappLink = ""
+      }
+      else if (city === 'mumbai' && hasDoneCourse === 'No') {
+        whatsappLink = ""
+      }
+      else if (city === 'other' && hasDoneCourse === 'Yes') {
+        whatsappLink = ""
+      }
+      else if (city === 'other' && hasDoneCourse === 'No') {
+        whatsappLink = ""
+      }
+      router.push(`/thankyou?link=${whatsappLink}`)
     }
   }
 
