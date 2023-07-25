@@ -39,22 +39,22 @@ const Landing: NextPage<Props> = ({ }) => {
       //TODO: add whatsapp link
       let whatsappLink;
       if (city === 'pune' && hasDoneCourse === 'Yes') {
-        whatsappLink = ""
+        whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
       }
       else if (city === 'pune' && hasDoneCourse === 'No') {
-        whatsappLink = ""
+        whatsappLink = "https://chat.whatsapp.com/JZ1WjQEdcHMImnN5OkvIWZ"
       }
       else if (city === 'mumbai' && hasDoneCourse === 'Yes') {
-        whatsappLink = ""
+        whatsappLink = "https://chat.whatsapp.com/DR5xrn6zSOp6mCTY2NUvz8"
       }
       else if (city === 'mumbai' && hasDoneCourse === 'No') {
-        whatsappLink = ""
+        whatsappLink = "https://chat.whatsapp.com/HyiBYkxWaLs5diNuhcSSnD"
       }
       else if (city === 'other' && hasDoneCourse === 'Yes') {
-        whatsappLink = ""
+        whatsappLink = "https://chat.whatsapp.com/HoqBXsXanZn4D0psFMrt3y"
       }
       else if (city === 'other' && hasDoneCourse === 'No') {
-        whatsappLink = ""
+        whatsappLink = "https://chat.whatsapp.com/BWYgRiPfnwIDeWrZP1djQ4"
       }
       router.push(`/thankyou?link=${whatsappLink}`)
     }
@@ -120,7 +120,10 @@ const Landing: NextPage<Props> = ({ }) => {
               id="name"
               placeholder="  Enter Name"
               value={name}
-              onChange={e => setName(e.target.value)}
+              onChange={e => {
+                setNameError("");
+                return setName(e.target.value);
+              }}
             />
             {nameError && (
               <div className="xl:text-sm text-xs text-red-500">
@@ -139,7 +142,10 @@ const Landing: NextPage<Props> = ({ }) => {
               id="whatsAppNumber"
               placeholder="  Enter WhatsApp Number"
               value={whatsAppNumber}
-              onChange={e => setWhatsAppNumber(e.target.value)}
+              onChange={e => {
+                setWhatsAppNumberError("");
+                return setWhatsAppNumber(e.target.value);
+              }}
             />
             {whatsAppNumberError && (
               <div className="xl:text-sm text-xs text-red-500">
@@ -156,7 +162,10 @@ const Landing: NextPage<Props> = ({ }) => {
               name="city"
               id="city"
               value={city}
-              onChange={e => setCity(e.target.value)}>
+              onChange={e => {
+                setCityError("");
+                return setCity(e.target.value);
+              }}>
               <option value="" disabled selected>Select a City</option>
               <option value="pune">Pune</option>
               <option value="mumbai">Mumbai</option>
@@ -178,7 +187,10 @@ const Landing: NextPage<Props> = ({ }) => {
               name="ArtOfLiving"
               id="ArtOfLiving"
               value={hasDoneCourse}
-              onChange={e => setHasDoneCourse(e.target.value)}
+              onChange={e => {
+                setHasDoneCourseError("");
+                return setHasDoneCourse(e.target.value);
+              }}
             >
               <option value="" disabled selected>Select an option</option>
               <option value="Yes">Yes</option>
