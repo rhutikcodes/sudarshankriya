@@ -31,12 +31,25 @@ const Landing: NextPage<Props> = ({ }) => {
   }, []);
 
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log({ name, whatsAppNumber, city, hasDoneCourse });
     if (validate()) {
-      //TODO: add make.com
+      // send to make.com
+      try {
+        let formData = new FormData();
+        formData.append("name", name);
+        formData.append("whatsapp", whatsAppNumber);
+        formData.append("city", city);
+        formData.append("hasDoneCourse", hasDoneCourse);
+        await fetch("https://hook.eu2.make.com/2egoy29ug7hkwf86tgi21px5sqliwkhg", {
+          method: "POST",
+          body: formData,
+        });
+      } catch (error) {
+        console.log("🚀 ~ file: page.js:35 ~ formSubmitHandler ~ error:", error);
+      }
 
-      //TODO: add whatsapp link
+      // redirect to whatsapp
       let whatsappLink;
       if (city === 'pune' && hasDoneCourse === 'Yes') {
         whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
