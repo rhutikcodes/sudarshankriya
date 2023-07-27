@@ -69,6 +69,8 @@ const Landing: NextPage<Props> = ({ }) => {
       else if (city === 'other' && hasDoneCourse === 'No') {
         whatsappLink = "https://chat.whatsapp.com/BWYgRiPfnwIDeWrZP1djQ4"
       }
+      //@ts-ignore
+      window.fbq('track', 'Submit Form');
       router.push(`/thankyou?link=${whatsappLink}`)
     }
   }
