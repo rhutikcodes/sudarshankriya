@@ -1,6 +1,7 @@
 'use client';
 import DownArrow from "@/Svg/DownArrow";
 import UpArrow from "@/Svg/UpArrow";
+import { filterPhoneNumber } from "@/utils/phoneUtils";
 import { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -36,9 +37,11 @@ const Landing: NextPage<Props> = ({ }) => {
     if (validate()) {
       // send to make.com
       try {
+        const phone = filterPhoneNumber(whatsAppNumber);
+        console.log("🚀 ~ file: landing.tsx:41 ~ handleSubmit ~ phone:", phone)
         let formData = new FormData();
         formData.append("name", name);
-        formData.append("whatsapp", whatsAppNumber);
+        formData.append("whatsapp", phone);
         formData.append("city", city);
         formData.append("hasDoneCourse", hasDoneCourse);
         await fetch("https://hook.eu2.make.com/2egoy29ug7hkwf86tgi21px5sqliwkhg", {
