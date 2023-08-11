@@ -4,8 +4,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'The Art Of Living',
-  description: 'Happiness Program at Art of Living Triveni Ashram',
+  title: 'Daily Yoga',
+  description: 'Free 5 Days Yoga Challenge',
 }
 
 export default function RootLayout({ children }) {
