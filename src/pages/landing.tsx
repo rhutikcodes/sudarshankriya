@@ -28,6 +28,8 @@ const Landing: NextPage<Props> = ({ }) => {
 
   const handleSubmit = async () => {
     console.log({ name, whatsAppNumber, city, hasDoneCourse });
+    const whatsappLink = 'https://chat.whatsapp.com/KmCWgSCR5Qr4VIRwzQzH2D';
+
     if (validate() && !isLoading) {
       try {
         setIsLoading(true);
@@ -39,6 +41,7 @@ const Landing: NextPage<Props> = ({ }) => {
             name,
             phone,
             source: "website",
+            link: whatsappLink
           }),
         });
       } catch (error) {
@@ -47,7 +50,6 @@ const Landing: NextPage<Props> = ({ }) => {
       setIsLoading(false);
 
       // // redirect to whatsapp
-      const whatsappLink = 'https://chat.whatsapp.com/KmCWgSCR5Qr4VIRwzQzH2D';
       // if (city === 'pune' && hasDoneCourse === 'Yes') {
       //   whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
       // }
