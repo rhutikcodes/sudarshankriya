@@ -41,7 +41,7 @@ const Landing: NextPage<Props> = ({ }) => {
             name,
             phone,
             source: "website",
-            link: whatsappLink
+            link: " https://i.dailyyoga.in/wajoin"
           }),
         });
       } catch (error) {
