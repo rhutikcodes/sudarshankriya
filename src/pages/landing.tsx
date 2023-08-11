@@ -1,16 +1,11 @@
 'use client';
-import DownArrow from "@/Svg/DownArrow";
-import UpArrow from "@/Svg/UpArrow";
 import { filterPhoneNumber } from "@/utils/phoneUtils";
 import { NextPage } from "next";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Calender from "../Svg/Calender";
 import Logo from "../Svg/Logo";
-import Rashmin from "../app/Rashmin.png";
 import Button from "./components/Button";
-import ScheduleList from "./components/ScheduleList";
 
 type Props = {};
 
@@ -30,7 +25,6 @@ const Landing: NextPage<Props> = ({ }) => {
     //@ts-ignore
     window.fbq('track', 'Home Page Loaded');
   }, []);
-
 
   const handleSubmit = async () => {
     console.log({ name, whatsAppNumber, city, hasDoneCourse });
@@ -52,26 +46,26 @@ const Landing: NextPage<Props> = ({ }) => {
         console.log("🚀 ~ file: page.js:35 ~ formSubmitHandler ~ error:", error);
       }
 
-      // redirect to whatsapp
-      let whatsappLink;
-      if (city === 'pune' && hasDoneCourse === 'Yes') {
-        whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
-      }
-      else if (city === 'pune' && hasDoneCourse === 'No') {
-        whatsappLink = "https://chat.whatsapp.com/JZ1WjQEdcHMImnN5OkvIWZ"
-      }
-      else if (city === 'mumbai' && hasDoneCourse === 'Yes') {
-        whatsappLink = "https://chat.whatsapp.com/DR5xrn6zSOp6mCTY2NUvz8"
-      }
-      else if (city === 'mumbai' && hasDoneCourse === 'No') {
-        whatsappLink = "https://chat.whatsapp.com/HyiBYkxWaLs5diNuhcSSnD"
-      }
-      else if (city === 'other' && hasDoneCourse === 'Yes') {
-        whatsappLink = "https://chat.whatsapp.com/HoqBXsXanZn4D0psFMrt3y"
-      }
-      else if (city === 'other' && hasDoneCourse === 'No') {
-        whatsappLink = "https://chat.whatsapp.com/BWYgRiPfnwIDeWrZP1djQ4"
-      }
+      // // redirect to whatsapp
+      const whatsappLink ='https://chat.whatsapp.com/KtYTwvXMHYo4j2GM6juYTX';
+      // if (city === 'pune' && hasDoneCourse === 'Yes') {
+      //   whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
+      // }
+      // else if (city === 'pune' && hasDoneCourse === 'No') {
+      //   whatsappLink = "https://chat.whatsapp.com/JZ1WjQEdcHMImnN5OkvIWZ"
+      // }
+      // else if (city === 'mumbai' && hasDoneCourse === 'Yes') {
+      //   whatsappLink = "https://chat.whatsapp.com/DR5xrn6zSOp6mCTY2NUvz8"
+      // }
+      // else if (city === 'mumbai' && hasDoneCourse === 'No') {
+      //   whatsappLink = "https://chat.whatsapp.com/HyiBYkxWaLs5diNuhcSSnD"
+      // }
+      // else if (city === 'other' && hasDoneCourse === 'Yes') {
+      //   whatsappLink = "https://chat.whatsapp.com/HoqBXsXanZn4D0psFMrt3y"
+      // }
+      // else if (city === 'other' && hasDoneCourse === 'No') {
+      //   whatsappLink = "https://chat.whatsapp.com/BWYgRiPfnwIDeWrZP1djQ4"
+      // }
       //@ts-ignore
       window.fbq('track', 'Submit Form');
       router.push(`/thankyou?link=${whatsappLink}`)
@@ -102,27 +96,27 @@ const Landing: NextPage<Props> = ({ }) => {
   return (
     <div className="w-full grid place-items-center">
       {/* top-design */}
-      <div className="bg-primary w-[390px] h-[756px]">
+      <div className="bg-primary w-[390px] h-[520px]">
         <div className="flex items-center justify-center flex-col mt-[54px] mb-[10px]">
-          <div>
+          <div className="h-8">
             <Logo />
           </div>
-          <div className="font-normal text-lg ">Residential</div>
+          <div className=" text-2xl font-bold ">5 DAY FREE ONLINE</div>
           <div className="text-secondary font-bold  text-center my-2">
-            <span className="text-[46px] leading-[50px]">Happiness </span>{" "}
-            <span className="text-[46px]">Program</span>
+            <span className="text-[46px] leading-[40px]">Yoga </span>{" "}
+            <span className="text-[46px]">Challenge</span>
           </div>
-          <div className="border border-t-secondary border-b-secondary border-l-transparent border-r-transparent px-1 my-[16px]">
-            at{" "}
+          <div className="border border-t-secondary border-b-secondary border-l-transparent border-r-transparent px-1 my-[5px]">
+            {/* Make{" "} */}
             <span className="font-semibold ">
-              Art of Living Triveni Ashram, Pune
+              Make Yoga A Lifestyle
             </span>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center text-center">
             <span>
               <Calender />
             </span>
-            <span>13 - 15 August 2023 </span>
+            <span className="pl-1">23 - 27 August 2023 </span>
           </div>
         </div>
         {/* form-start */}
@@ -171,7 +165,7 @@ const Landing: NextPage<Props> = ({ }) => {
               </div>
             )}
           </div>
-
+          {/* 
           <div className="flex flex-col w-[330px]">
             <label className="mb-1 opacity-80" htmlFor="city">
               City
@@ -219,14 +213,14 @@ const Landing: NextPage<Props> = ({ }) => {
                 {hasDoneCourseError}
               </div>
             )}
-          </div>
+          </div> */}
           <Button onClick={handleSubmit} />
         </div>
       </div>
 
-      <div
+      {/* <div
         className="w-[390px] flex items-center justify-center my-12 
-      "
+"
       >
         <div className="space-y-1 pl-1">
           <span className="font-bold text-xs opacity-70">Faculty</span>
@@ -253,21 +247,21 @@ const Landing: NextPage<Props> = ({ }) => {
             ></div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="bg-primary w-[390px] h-[689px]">
+      <div className="bg-primary w-[390px] h-[430px]">
         <h2
-          className="text-secondary text-3xl font-bold mt-[60px] mb-[16px] flex
+          className="text-secondary text-3xl font-bold mt-[20px] mb-[16px] flex
            justify-center"
         >
           Highlights
         </h2>
-        <ul className="list-disc pl-8 space-y-7 text-base opacity-70 ">
+        <ul className="list-none pl-8 space-y-7 text-base opacity-70 ">
           <li>
-            Learn & Experience the world’s most powerful breathing technique -{" "}
-            <span className="font-bold">Sudarshan Kriya</span>
+            💪🏻 Learn Powerful Yoga Asanas
+            {/* <span className="font-bold">Sudarshan Kriya</span> */}
           </li>
-          <div className="bg-white w-[306px] py-3 px-5 rounded">
+          {/* <div className="bg-white w-[306px] py-3 px-5 rounded">
             <h2 className="pl-6 my-2">Benefits of Sudarshan Kriya</h2>
             <div className="flex justify-between">
               <div
@@ -296,20 +290,20 @@ const Landing: NextPage<Props> = ({ }) => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
           <li>
-            Fulfilled Morning Yoga, Blissful Meditations & Musical Evenings
+            🧘🏻‍♂️ Experience Blissful Meditations
           </li>
-          <li>Youth Activities, Games & Interactive Group Processes</li>
-          <li>Opportunity to network with happy minds</li>
-          <li>Multiple accommodation options available</li>
+          <li>🫁 Practice Immunity Enhancing Pranayamas</li>
+          <li>⏱️ Special Session on Dincharya (Circadian Rhythm)</li>
+          <li>🍎 Get a Diet Chart According To Prakruti</li>
         </ul>
         <div className="w-full flex justify-center my-5">
           <Button onClick={handleSubmit} />
         </div>
       </div>
 
-      <div className="w-[390px] ">
+      {/* <div className="w-[390px] ">
         <h2 className="text-secondary font-bold text-center text-3xl mt-[50px] mb-[16px]">
           Schedule
         </h2>
@@ -402,7 +396,7 @@ const Landing: NextPage<Props> = ({ }) => {
             alt=""
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
