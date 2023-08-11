@@ -18,7 +18,7 @@ const Landing: NextPage<Props> = ({ }) => {
   const [hasDoneCourse, setHasDoneCourse] = useState('');
   const [nameError, setNameError] = useState('');
   const [whatsAppNumberError, setWhatsAppNumberError] = useState('');
-  const [cityError, setCityError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [hasDoneCourseError, setHasDoneCourseError] = useState('');
 
   useEffect(() => {
@@ -28,26 +28,26 @@ const Landing: NextPage<Props> = ({ }) => {
 
   const handleSubmit = async () => {
     console.log({ name, whatsAppNumber, city, hasDoneCourse });
-    if (validate()) {
-      // send to make.com
+    if (validate() && !isLoading) {
       try {
+        setIsLoading(true);
         const phone = filterPhoneNumber(whatsAppNumber);
         console.log("🚀 ~ file: landing.tsx:41 ~ handleSubmit ~ phone:", phone)
-        let formData = new FormData();
-        formData.append("name", name);
-        formData.append("whatsapp", phone);
-        formData.append("city", city);
-        formData.append("hasDoneCourse", hasDoneCourse);
-        await fetch("https://hook.eu2.make.com/2egoy29ug7hkwf86tgi21px5sqliwkhg", {
+        await fetch("https://dailyyoga.careergpt.workers.dev/webhook", {
           method: "POST",
-          body: formData,
+          body: JSON.stringify({
+            name,
+            phone,
+            source: "website",
+          }),
         });
       } catch (error) {
         console.log("🚀 ~ file: page.js:35 ~ formSubmitHandler ~ error:", error);
       }
+      setIsLoading(false);
 
       // // redirect to whatsapp
-      const whatsappLink ='https://chat.whatsapp.com/KtYTwvXMHYo4j2GM6juYTX';
+      const whatsappLink = 'https://chat.whatsapp.com/KmCWgSCR5Qr4VIRwzQzH2D';
       // if (city === 'pune' && hasDoneCourse === 'Yes') {
       //   whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
       // }
@@ -80,14 +80,6 @@ const Landing: NextPage<Props> = ({ }) => {
     }
     if (whatsAppNumber === "") {
       setWhatsAppNumberError("*required field");
-      status = false;
-    }
-    if (city === "") {
-      setCityError("*required field");
-      status = false;
-    }
-    if (hasDoneCourse === "") {
-      setHasDoneCourseError("*required field");
       status = false;
     }
     return status;
