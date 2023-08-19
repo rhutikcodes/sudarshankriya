@@ -42,7 +42,9 @@ const Landing: NextPage<Props> = ({ }) => {
           body: JSON.stringify({
             name,
             phone,
+            source: "website",
             hasDoneCourse,
+            sheetId: "12j-CZzc9hdd2b4_AICcvBzB9wgQWtGnXXCr8E_96j1M"
           }),
         });
       } catch (error) {
