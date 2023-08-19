@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'The Art Of Living',
   description: 'Happiness Program by The Art Of Living'
+}
 
 export default function RootLayout({ children }) {
   return (
