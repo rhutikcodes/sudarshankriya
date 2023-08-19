@@ -1,6 +1,7 @@
 'use client';
 import DownArrow from "@/Svg/DownArrow";
 import UpArrow from "@/Svg/UpArrow";
+import Money from "@/Svg/money";
 import { filterPhoneNumber } from "@/utils/phoneUtils";
 import { NextPage } from "next";
 import { useRouter } from "next/navigation";
@@ -94,10 +95,14 @@ const Landing: NextPage<Props> = ({ }) => {
             </span>
           </div>
           <div className="flex items-center justify-center">
-            <span>
-              <Calender />
-            </span>
-            <span>25 - 27 August 2023 </span>
+            <Calender />
+            <div className="ml-2"> 25 - 27 August 2023 </div>
+          </div>
+          <div className="flex items-center justify-center mt-1">
+
+            <Money />
+
+            <div className="ml-2" >Donation- ₹3200/- </div>
           </div>
         </div>
         {/* form-start */}
