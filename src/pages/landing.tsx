@@ -83,7 +83,7 @@ const Landing: NextPage<Props> = ({ }) => {
           <div>
             <Logo />
           </div>
-          <div className="font-normal text-lg ">Offline</div>
+          <div className="font-normal text-lg ">In Person</div>
           <div className="text-secondary font-bold  text-center my-2">
             <span className="text-[46px] leading-[50px]">Happiness </span>{" "}
             <span className="text-[46px]">Program</span>
