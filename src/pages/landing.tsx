@@ -28,7 +28,7 @@ const Landing: NextPage<Props> = ({ }) => {
 
   const handleSubmit = async () => {
     console.log({ name, whatsAppNumber, city, hasDoneCourse });
-    const whatsappLink = 'https://chat.whatsapp.com/FlhcRSZcDGe0LXAPrTdc5k';
+    const whatsappLink = 'https://chat.whatsapp.com/I7kdEqFLB383ywRSogpB6i';
 
     if (validate() && !isLoading) {
       try {
