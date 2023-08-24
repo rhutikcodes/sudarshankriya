@@ -30,11 +30,12 @@ const Landing: NextPage<Props> = ({ }) => {
 
 
   const handleSubmit = async () => {
-    console.log({ name, whatsAppNumber, hasDoneCourse });
+    console.log({ name, whatsAppNumber, hasDoneCourse }, isLoading);
     const whatsappLink = 'https://chat.whatsapp.com/EATaRjRQoUkKfANjdZ5dH5';
 
     if (validate() && !isLoading) {
       try {
+        console.log("🚀 ~ file: landing.tsx:39 ~ handleSubmit ~ validate()", validate())
         setIsLoading(true);
         const phone = filterPhoneNumber(whatsAppNumber);
         console.log("🚀 ~ file: landing.tsx:41 ~ handleSubmit ~ phone:", phone)
@@ -64,7 +65,7 @@ const Landing: NextPage<Props> = ({ }) => {
       setNameError("*required field");
       status = false;
     }
-    if (whatsAppNumber === "") {
+    if (whatsAppNumber === "" || whatsAppNumber.length < 8) {
       setWhatsAppNumberError("*required field");
       status = false;
     }
