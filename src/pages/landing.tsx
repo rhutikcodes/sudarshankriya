@@ -25,6 +25,7 @@ const Landing: NextPage<Props> = ({ }) => {
   const [whatsAppNumberError, setWhatsAppNumberError] = useState('');
   const [cityError, setCityError] = useState('');
   const [hasDoneCourseError, setHasDoneCourseError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     //@ts-ignore
@@ -33,48 +34,53 @@ const Landing: NextPage<Props> = ({ }) => {
 
 
   const handleSubmit = async () => {
-    console.log({ name, whatsAppNumber, city, hasDoneCourse });
-    if (validate()) {
+    console.log({ name, whatsAppNumber, city, hasDoneCourse }, isLoading);
+    if (validate() && !isLoading) {
+      console.log("🚀 ~ file: landing.tsx:39 ~ handleSubmit ~ validate", validate())
       // send to make.com
       try {
+        setIsLoading(true);
         const phone = filterPhoneNumber(whatsAppNumber);
         console.log("🚀 ~ file: landing.tsx:41 ~ handleSubmit ~ phone:", phone)
-        let formData = new FormData();
-        formData.append("name", name);
-        formData.append("whatsapp", phone);
-        formData.append("city", city);
-        formData.append("hasDoneCourse", hasDoneCourse);
-        await fetch("https://hook.eu2.make.com/2egoy29ug7hkwf86tgi21px5sqliwkhg", {
+        await fetch("https://dailyyoga.careergpt.workers.dev/webhook/mumbai", {
           method: "POST",
-          body: formData,
+          body: JSON.stringify({
+            name,
+            phone,
+            source: "website",
+            hasDoneCourse,
+            sheetId: "1ajk_rDicDvKwlQTP8cWbQsC9mojSViEujXouZ9EpPD4"
+          }),
         });
-      } catch (error) {
-        console.log("🚀 ~ file: page.js:35 ~ formSubmitHandler ~ error:", error);
-      }
 
-      // redirect to whatsapp
-      let whatsappLink;
-      if (city === 'pune' && hasDoneCourse === 'Yes') {
-        whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
+        // redirect to whatsapp
+        let whatsappLink;
+        if (city === 'pune' && hasDoneCourse === 'Yes') {
+          whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
+        }
+        else if (city === 'pune' && hasDoneCourse === 'No') {
+          whatsappLink = "https://chat.whatsapp.com/JZ1WjQEdcHMImnN5OkvIWZ"
+        }
+        else if (city === 'mumbai' && hasDoneCourse === 'Yes') {
+          whatsappLink = "https://chat.whatsapp.com/DR5xrn6zSOp6mCTY2NUvz8"
+        }
+        else if (city === 'mumbai' && hasDoneCourse === 'No') {
+          whatsappLink = "https://chat.whatsapp.com/HyiBYkxWaLs5diNuhcSSnD"
+        }
+        else if (city === 'other' && hasDoneCourse === 'Yes') {
+          whatsappLink = "https://chat.whatsapp.com/HoqBXsXanZn4D0psFMrt3y"
+        }
+        else if (city === 'other' && hasDoneCourse === 'No') {
+          whatsappLink = "https://chat.whatsapp.com/BWYgRiPfnwIDeWrZP1djQ4"
+        }
+        setIsLoading(false);
+        //@ts-ignore
+        window.fbq('track', 'Submit Form');
+        router.push(`/thankyou?link=${whatsappLink}`)
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error);
       }
-      else if (city === 'pune' && hasDoneCourse === 'No') {
-        whatsappLink = "https://chat.whatsapp.com/JZ1WjQEdcHMImnN5OkvIWZ"
-      }
-      else if (city === 'mumbai' && hasDoneCourse === 'Yes') {
-        whatsappLink = "https://chat.whatsapp.com/DR5xrn6zSOp6mCTY2NUvz8"
-      }
-      else if (city === 'mumbai' && hasDoneCourse === 'No') {
-        whatsappLink = "https://chat.whatsapp.com/HyiBYkxWaLs5diNuhcSSnD"
-      }
-      else if (city === 'other' && hasDoneCourse === 'Yes') {
-        whatsappLink = "https://chat.whatsapp.com/HoqBXsXanZn4D0psFMrt3y"
-      }
-      else if (city === 'other' && hasDoneCourse === 'No') {
-        whatsappLink = "https://chat.whatsapp.com/BWYgRiPfnwIDeWrZP1djQ4"
-      }
-      //@ts-ignore
-      window.fbq('track', 'Submit Form');
-      router.push(`/thankyou?link=${whatsappLink}`)
     }
   }
 
@@ -84,7 +90,7 @@ const Landing: NextPage<Props> = ({ }) => {
       setNameError("*required field");
       status = false;
     }
-    if (whatsAppNumber === "") {
+    if (whatsAppNumber === "" || whatsAppNumber.length < 8) {
       setWhatsAppNumberError("*required field");
       status = false;
     }
@@ -122,7 +128,7 @@ const Landing: NextPage<Props> = ({ }) => {
             <span>
               <Calender />
             </span>
-            <span>13 - 15 August 2023 </span>
+            <span>29 Sept - 1 Oct 2023 </span>
           </div>
         </div>
         {/* form-start */}
@@ -316,7 +322,7 @@ const Landing: NextPage<Props> = ({ }) => {
         <div className="space-y-4">
           <div className="flex justify-center">
             <ScheduleList
-              date="13 August"
+              date="29 Sept"
               list={[
                 "Reporting by 4 pm",
                 "Session starts at 5 pm",
@@ -328,7 +334,7 @@ const Landing: NextPage<Props> = ({ }) => {
           </div>
           <div className="flex justify-center">
             <ScheduleList
-              date="14 August"
+              date="30 Sept"
               list={[
                 "Morning Yoga at 6:30 am",
                 "Breakfast at 8:30 am",
@@ -344,7 +350,7 @@ const Landing: NextPage<Props> = ({ }) => {
           </div>
           <div className="flex justify-center">
             <ScheduleList
-              date="15 August"
+              date="1 Oct"
               list={[
                 "Morning Yoga at 6:30 am followed by Independance Day Celebration",
                 "Breakfast at 8:30 am",
