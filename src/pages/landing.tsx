@@ -47,6 +47,7 @@ const Landing: NextPage<Props> = ({ }) => {
           body: JSON.stringify({
             name,
             phone,
+            city,
             source: "website",
             hasDoneCourse,
             sheetId: "1ajk_rDicDvKwlQTP8cWbQsC9mojSViEujXouZ9EpPD4"
@@ -352,7 +353,7 @@ const Landing: NextPage<Props> = ({ }) => {
             <ScheduleList
               date="1 Oct"
               list={[
-                "Morning Yoga at 6:30 am followed by Independance Day Celebration",
+                "Morning Yoga at 6:30 am",
                 "Breakfast at 8:30 am",
                 "Morning Session starts at 10 am",
                 "Dive deeper into the self",
@@ -374,7 +375,7 @@ const Landing: NextPage<Props> = ({ }) => {
         <div className="w-full relative px-4 ">
           <Image
             className="object-cover object-center h-[250px] w-[250px]  absolute top-[200px] left-[0px] rounded-full z-[5]"
-            src={'/2.png'}
+            src={'/1.png'}
             width={250}
             height={250}
             alt=""
