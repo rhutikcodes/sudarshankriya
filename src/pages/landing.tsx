@@ -375,7 +375,7 @@ const Landing: NextPage<Props> = ({ }) => {
         <div className="w-full relative px-4 ">
           <Image
             className="object-cover object-center h-[250px] w-[250px]  absolute top-[200px] left-[0px] rounded-full z-[5]"
-            src={'/1.png'}
+            src={'/1.jpeg'}
             width={250}
             height={250}
             alt=""
