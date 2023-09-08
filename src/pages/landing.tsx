@@ -47,8 +47,6 @@ const Landing: NextPage<Props> = ({ }) => {
       } catch (error) {
         console.log("🚀 ~ file: page.js:35 ~ formSubmitHandler ~ error:", error);
       }
-      setIsLoading(false);
-
       // // redirect to whatsapp
       // if (city === 'pune' && hasDoneCourse === 'Yes') {
       //   whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
@@ -70,6 +68,7 @@ const Landing: NextPage<Props> = ({ }) => {
       // }
       //@ts-ignore
       window.fbq('track', 'Submit Form');
+      setIsLoading(false);
       router.push(`/thankyou?link=${whatsappLink}`)
     }
   }
@@ -80,7 +79,7 @@ const Landing: NextPage<Props> = ({ }) => {
       setNameError("*required field");
       status = false;
     }
-    if (whatsAppNumber === "") {
+    if (whatsAppNumber === "" || whatsAppNumber.length < 8) {
       setWhatsAppNumberError("*required field");
       status = false;
     }
@@ -90,7 +89,7 @@ const Landing: NextPage<Props> = ({ }) => {
   return (
     <div className="w-full grid place-items-center">
       {/* top-design */}
-      <div className="bg-primary w-[390px] h-[520px]">
+      <div className="bg-primary w-[390px] h-[580px]">
         <div className="flex items-center justify-center flex-col mt-[54px] mb-[10px]">
           <div className="h-8">
             <Logo />
@@ -208,7 +207,7 @@ const Landing: NextPage<Props> = ({ }) => {
               </div>
             )}
           </div> */}
-          <Button onClick={handleSubmit} />
+          <Button onClick={handleSubmit} isLoading={isLoading} />
         </div>
       </div>
 
@@ -293,7 +292,7 @@ const Landing: NextPage<Props> = ({ }) => {
           <li>🍎 Get a Diet Chart According To Prakruti</li>
         </ul>
         <div className="w-full flex justify-center my-5">
-          <Button onClick={handleSubmit} />
+          <Button onClick={handleSubmit} isLoading={isLoading} />
         </div>
       </div>
 
