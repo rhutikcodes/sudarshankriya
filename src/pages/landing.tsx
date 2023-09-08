@@ -28,7 +28,7 @@ const Landing: NextPage<Props> = ({ }) => {
 
   const handleSubmit = async () => {
     console.log({ name, whatsAppNumber, city, hasDoneCourse });
-    const whatsappLink = 'https://chat.whatsapp.com/I7kdEqFLB383ywRSogpB6i';
+    const whatsappLink = 'https://chat.whatsapp.com/EjxAQ5MD69cLoiPIQpiuJC';
 
     if (validate() && !isLoading) {
       try {
@@ -97,8 +97,8 @@ const Landing: NextPage<Props> = ({ }) => {
           </div>
           <div className=" text-2xl font-bold ">5 DAY FREE ONLINE</div>
           <div className="text-secondary font-bold  text-center my-2">
-            <span className="text-[46px] leading-[40px]">Yoga </span>{" "}
-            <span className="text-[46px]">Challenge</span>
+            <span className="text-[46px] leading-[40px]">WEIGHTLOSS </span>{" "}
+            <span className="text-[46px]">YOGA</span>
           </div>
           <div className="border border-t-secondary border-b-secondary border-l-transparent border-r-transparent px-1 my-[5px]">
             {/* Make{" "} */}
@@ -110,7 +110,7 @@ const Landing: NextPage<Props> = ({ }) => {
             <span>
               <Calender />
             </span>
-            <span className="pl-1">23 - 27 August 2023 </span>
+            <span className="pl-1">20 - 24 Sept 2023 </span>
           </div>
         </div>
         {/* form-start */}
