@@ -97,7 +97,7 @@ const Landing: NextPage<Props> = ({ }) => {
           </div>
           <div className="flex items-center justify-center">
             <Calender />
-            <div className="ml-2"> 25 - 27 August 2023 </div>
+            <div className="ml-2"> 06 - 08 Sept 2023 </div>
           </div>
           <div className="flex items-center justify-center mt-1">
 
