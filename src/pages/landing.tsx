@@ -129,7 +129,7 @@ const Landing: NextPage<Props> = ({ }) => {
             <span>
               <Calender />
             </span>
-            <span>6 Oct - 8 Oct 2023 </span>
+            <span>15 Dec - 17 Dec 2023 </span>
           </div>
         </div>
         {/* form-start */}
@@ -323,7 +323,7 @@ const Landing: NextPage<Props> = ({ }) => {
         <div className="space-y-4">
           <div className="flex justify-center">
             <ScheduleList
-              date="6 Oct"
+              date="15 Dec"
               list={[
                 "Reporting by 4 pm",
                 "Session starts at 5 pm",
@@ -335,7 +335,7 @@ const Landing: NextPage<Props> = ({ }) => {
           </div>
           <div className="flex justify-center">
             <ScheduleList
-              date="7 Oct"
+              date="16 Dec"
               list={[
                 "Morning Yoga at 6:30 am",
                 "Breakfast at 8:30 am",
@@ -351,7 +351,7 @@ const Landing: NextPage<Props> = ({ }) => {
           </div>
           <div className="flex justify-center">
             <ScheduleList
-              date="8 Oct"
+              date="17 Dec"
               list={[
                 "Morning Yoga at 6:30 am",
                 "Breakfast at 8:30 am",
