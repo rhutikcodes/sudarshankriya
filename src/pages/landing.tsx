@@ -28,7 +28,7 @@ const Landing: NextPage<Props> = ({ }) => {
 
   const handleSubmit = async () => {
     console.log({ name, whatsAppNumber, city, hasDoneCourse });
-    const whatsappLink = 'https://chat.whatsapp.com/HCmmM24KWve3Pw3RJbW1US';
+    const whatsappLink = 'https://u.dailyyoga.in/free';
 
     if (validate() && !isLoading) {
       try {
@@ -41,7 +41,7 @@ const Landing: NextPage<Props> = ({ }) => {
             name,
             phone,
             source: "website",
-            link: "https://i.dailyyoga.in/wajoin"
+            link: "https://u.dailyyoga.in/free"
           }),
         });
       } catch (error) {
