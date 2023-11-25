@@ -96,8 +96,8 @@ const Landing: NextPage<Props> = ({ }) => {
           </div>
           <div className=" text-2xl font-bold ">3 DAY FREE ONLINE</div>
           <div className="text-secondary font-bold  text-center my-2">
-            <span className="text-[46px] leading-[40px]">LEARN </span>{" "}
-            <span className="text-[46px]">BASICS OF YOGA</span>
+            <span className="text-[46px] leading-[40px]">WEIGHTLOSS </span>{" "}
+            <span className="text-[46px]">Challenge</span>
           </div>
           <div className="border border-t-secondary border-b-secondary border-l-transparent border-r-transparent px-1 my-[5px]">
             {/* Make{" "} */}
