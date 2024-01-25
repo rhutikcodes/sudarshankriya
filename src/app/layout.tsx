@@ -4,8 +4,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'The Art Of Living',
-  description: 'Happiness Program at Art of Living Triveni Ashram',
+  title: 'Gyan Ganga',
+  description: 'Exclusive Session with Gurudev Sri Sri Ravi Shankar Ji',
 }
 
 export default function RootLayout({ children }) {
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '603445101776980');
+              fbq('init', '1124279059009684');
             `,
           }}
         />
