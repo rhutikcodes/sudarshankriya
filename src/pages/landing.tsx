@@ -3,14 +3,11 @@ import DownArrow from "@/Svg/DownArrow";
 import UpArrow from "@/Svg/UpArrow";
 import { filterPhoneNumber } from "@/utils/phoneUtils";
 import { NextPage } from "next";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Calender from "../Svg/Calender";
 import Logo from "../Svg/Logo";
-import Rashmin from "../app/Rashmin.png";
 import Button from "./components/Button";
-import ScheduleList from "./components/ScheduleList";
 
 type Props = {};
 
@@ -19,11 +16,9 @@ const Landing: NextPage<Props> = ({ }) => {
 
   const [name, setName] = useState('');
   const [whatsAppNumber, setWhatsAppNumber] = useState('');
-  const [city, setCity] = useState('');
   const [hasDoneCourse, setHasDoneCourse] = useState('');
   const [nameError, setNameError] = useState('');
   const [whatsAppNumberError, setWhatsAppNumberError] = useState('');
-  const [cityError, setCityError] = useState('');
   const [hasDoneCourseError, setHasDoneCourseError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,7 +29,6 @@ const Landing: NextPage<Props> = ({ }) => {
 
 
   const handleSubmit = async () => {
-    console.log({ name, whatsAppNumber, city, hasDoneCourse }, isLoading);
     if (validate() && !isLoading) {
       console.log("🚀 ~ file: landing.tsx:39 ~ handleSubmit ~ validate", validate())
       // send to make.com
@@ -47,33 +41,32 @@ const Landing: NextPage<Props> = ({ }) => {
           body: JSON.stringify({
             name,
             phone,
-            city,
             source: "website",
             hasDoneCourse,
-            sheetId: "1ajk_rDicDvKwlQTP8cWbQsC9mojSViEujXouZ9EpPD4"
+            sheetId: "1lJwItJROj6fmqoURx4hL7yjUOxw8o-0KyextE34MvC4"
           }),
         });
 
         // redirect to whatsapp
-        let whatsappLink;
-        if (city === 'pune' && hasDoneCourse === 'Yes') {
-          whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
-        }
-        else if (city === 'pune' && hasDoneCourse === 'No') {
-          whatsappLink = "https://chat.whatsapp.com/JZ1WjQEdcHMImnN5OkvIWZ"
-        }
-        else if (city === 'mumbai' && hasDoneCourse === 'Yes') {
-          whatsappLink = "https://chat.whatsapp.com/DR5xrn6zSOp6mCTY2NUvz8"
-        }
-        else if (city === 'mumbai' && hasDoneCourse === 'No') {
-          whatsappLink = "https://chat.whatsapp.com/HyiBYkxWaLs5diNuhcSSnD"
-        }
-        else if (city === 'other' && hasDoneCourse === 'Yes') {
-          whatsappLink = "https://chat.whatsapp.com/HoqBXsXanZn4D0psFMrt3y"
-        }
-        else if (city === 'other' && hasDoneCourse === 'No') {
-          whatsappLink = "https://chat.whatsapp.com/BWYgRiPfnwIDeWrZP1djQ4"
-        }
+        const whatsappLink = "https://chat.whatsapp.com/CkiZcSHnXxhA35pBbvtVWs"
+        // if (city === 'pune' && hasDoneCourse === 'Yes') {
+        //   whatsappLink = "https://chat.whatsapp.com/E1Ok9ej52DzCKyVlbKcvgN"
+        // }
+        // else if (city === 'pune' && hasDoneCourse === 'No') {
+        //   whatsappLink = "https://chat.whatsapp.com/JZ1WjQEdcHMImnN5OkvIWZ"
+        // }
+        // else if (city === 'mumbai' && hasDoneCourse === 'Yes') {
+        //   whatsappLink = "https://chat.whatsapp.com/DR5xrn6zSOp6mCTY2NUvz8"
+        // }
+        // else if (city === 'mumbai' && hasDoneCourse === 'No') {
+        //   whatsappLink = "https://chat.whatsapp.com/HyiBYkxWaLs5diNuhcSSnD"
+        // }
+        // else if (city === 'other' && hasDoneCourse === 'Yes') {
+        //   whatsappLink = "https://chat.whatsapp.com/HoqBXsXanZn4D0psFMrt3y"
+        // }
+        // else if (city === 'other' && hasDoneCourse === 'No') {
+        //   whatsappLink = "https://chat.whatsapp.com/BWYgRiPfnwIDeWrZP1djQ4"
+        // }
         setIsLoading(false);
         //@ts-ignore
         window.fbq('track', 'Submit Form');
@@ -95,10 +88,6 @@ const Landing: NextPage<Props> = ({ }) => {
       setWhatsAppNumberError("*required field");
       status = false;
     }
-    if (city === "") {
-      setCityError("*required field");
-      status = false;
-    }
     if (hasDoneCourse === "") {
       setHasDoneCourseError("*required field");
       status = false;
@@ -109,12 +98,11 @@ const Landing: NextPage<Props> = ({ }) => {
   return (
     <div className="w-full grid place-items-center">
       {/* top-design */}
-      <div className="bg-primary w-[390px] h-[756px]">
+      <div className="bg-primary w-[390px] h-[650px]">
         <div className="flex items-center justify-center flex-col mt-[54px] mb-[10px]">
           <div>
             <Logo />
           </div>
-          <div className="font-normal text-lg ">Residential</div>
           <div className="text-secondary font-bold  text-center my-2">
             <span className="text-[46px] leading-[50px]">Happiness </span>{" "}
             <span className="text-[46px]">Program</span>
@@ -122,14 +110,14 @@ const Landing: NextPage<Props> = ({ }) => {
           <div className="border border-t-secondary border-b-secondary border-l-transparent border-r-transparent px-1 my-[16px]">
             at{" "}
             <span className="font-semibold ">
-              Art of Living Triveni Ashram, Pune
+              Bibwewadi, Pune
             </span>
           </div>
           <div className="flex items-center justify-center">
             <span>
               <Calender />
             </span>
-            <span>15 Dec - 17 Dec 2023 </span>
+            <span className="ml-1">2nd - 7th April 2024 </span>
           </div>
         </div>
         {/* form-start */}
@@ -179,7 +167,7 @@ const Landing: NextPage<Props> = ({ }) => {
             )}
           </div>
 
-          <div className="flex flex-col w-[330px]">
+          {/* <div className="flex flex-col w-[330px]">
             <label className="mb-1 opacity-80" htmlFor="city">
               City
             </label>
@@ -201,7 +189,7 @@ const Landing: NextPage<Props> = ({ }) => {
                 {cityError}
               </div>
             )}
-          </div>
+          </div> */}
 
           <div className="flex flex-col w-[330px]">
             <label className="mb-1 opacity-80" htmlFor="ArtOfLiving">
@@ -231,7 +219,7 @@ const Landing: NextPage<Props> = ({ }) => {
         </div>
       </div>
 
-      <div
+      {/* <div
         className="w-[390px] flex items-center justify-center my-12 
       "
       >
@@ -260,7 +248,7 @@ const Landing: NextPage<Props> = ({ }) => {
             ></div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="bg-primary w-[390px] h-[689px]">
         <h2
@@ -305,18 +293,19 @@ const Landing: NextPage<Props> = ({ }) => {
             </div>
           </div>
           <li>
-            Fulfilled Morning Yoga, Blissful Meditations & Musical Evenings
+            Experience Powerful Yoga, Pranayamas, and Blissful Meditations
           </li>
-          <li>Youth Activities, Games & Interactive Group Processes</li>
+          <li>Learn with Games & Interactive Group Processes</li>
           <li>Opportunity to network with happy minds</li>
-          <li>Multiple accommodation options available</li>
+          <li>Powerful 6 days course with lifetime weekly reconnect sessions</li>
+          <li>Mor - 6:30 to 9 AM  | Eve - 6:30 to 9 PM</li>
         </ul>
-        <div className="w-full flex justify-center my-5">
+        {/* <div className="w-full flex justify-center my-5">
           <Button onClick={handleSubmit} />
-        </div>
+        </div> */}
       </div>
 
-      <div className="w-[390px] ">
+      {/* <div className="w-[390px] ">
         <h2 className="text-secondary font-bold text-center text-3xl mt-[50px] mb-[16px]">
           Schedule
         </h2>
@@ -409,7 +398,7 @@ const Landing: NextPage<Props> = ({ }) => {
             alt=""
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
