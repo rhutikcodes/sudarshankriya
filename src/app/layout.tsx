@@ -11,9 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10932735020"></script>
+      </head>
       <body className={inter.className}>{children}
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LXJLC4T"
-          height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
       </body>
     </html >
   )

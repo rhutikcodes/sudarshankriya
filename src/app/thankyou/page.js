@@ -9,8 +9,8 @@ export default function ThankYou() {
 
   // redirect when component is mounted
   useEffect(() => {
+    gtag('event', 'conversion', { 'send_to': 'AW-10932735020/URmnCL3AlZ0ZEKyYkd0o' })
     window.fbq('track', 'Thank You Page Loaded');
-    console.log("🚀 ~ file: whatsapp.tsx:12 ~ link:", link)
     if (typeof window !== 'undefined' && link) {
       window.location.href = link
     }
