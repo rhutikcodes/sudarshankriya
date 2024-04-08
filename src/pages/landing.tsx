@@ -96,14 +96,14 @@ const Landing: NextPage<Props> = ({ }) => {
   };
 
   return (
-    <div className="w-full grid place-items-center">
+    <div className="grid w-full place-items-center">
       {/* top-design */}
       <div className="bg-primary w-[390px] h-[650px]">
         <div className="flex items-center justify-center flex-col mt-[54px] mb-[10px]">
           <div>
             <Logo />
           </div>
-          <div className="text-secondary font-bold  text-center my-2">
+          <div className="my-2 font-bold text-center text-secondary">
             <span className="text-[46px] leading-[50px]">Happiness </span>{" "}
             <span className="text-[46px]">Program</span>
           </div>
@@ -117,13 +117,13 @@ const Landing: NextPage<Props> = ({ }) => {
             <span>
               <Calender />
             </span>
-            <span className="ml-1">2nd - 7th April 2024 </span>
+            <span className="ml-1">16-21 April 2024 </span>
           </div>
         </div>
         {/* form-start */}
         <div className="flex flex-col justify-center items-center space-y-4 mt-[20px]">
           <div className="flex flex-col w-[330px] ">
-            <label className="text-sm mb-1 opacity-80" htmlFor="">
+            <label className="mb-1 text-sm opacity-80" htmlFor="">
               Name
             </label>
             <input
@@ -139,14 +139,14 @@ const Landing: NextPage<Props> = ({ }) => {
               }}
             />
             {nameError && (
-              <div className="xl:text-sm text-xs text-red-500">
+              <div className="text-xs text-red-500 xl:text-sm">
                 {nameError}
               </div>
             )}
           </div>
 
           <div className="flex flex-col w-[330px]">
-            <label className="text-sm mb-1 opacity-80" htmlFor="">
+            <label className="mb-1 text-sm opacity-80" htmlFor="">
               WhatsApp Number
             </label>
             <input
@@ -161,7 +161,7 @@ const Landing: NextPage<Props> = ({ }) => {
               }}
             />
             {whatsAppNumberError && (
-              <div className="xl:text-sm text-xs text-red-500">
+              <div className="text-xs text-red-500 xl:text-sm">
                 {whatsAppNumberError}
               </div>
             )}
@@ -185,7 +185,7 @@ const Landing: NextPage<Props> = ({ }) => {
               <option value="other">Other</option>
             </select>
             {cityError && (
-              <div className="xl:text-sm text-xs text-red-500">
+              <div className="text-xs text-red-500 xl:text-sm">
                 {cityError}
               </div>
             )}
@@ -210,7 +210,7 @@ const Landing: NextPage<Props> = ({ }) => {
               <option value="No">No</option>
             </select>
             {hasDoneCourseError && (
-              <div className="xl:text-sm text-xs text-red-500">
+              <div className="text-xs text-red-500 xl:text-sm">
                 {hasDoneCourseError}
               </div>
             )}
@@ -223,20 +223,20 @@ const Landing: NextPage<Props> = ({ }) => {
         className="w-[390px] flex items-center justify-center my-12 
       "
       >
-        <div className="space-y-1 pl-1">
-          <span className="font-bold text-xs opacity-70">Faculty</span>
-          <h1 className="font-semibold text-xl text-secondary">
+        <div className="pl-1 space-y-1">
+          <span className="text-xs font-bold opacity-70">Faculty</span>
+          <h1 className="text-xl font-semibold text-secondary">
             Rashmin Pulekar
           </h1>
           <p className="text-xs font-normal opacity-70">
             TEDx Speaker, Youth Coach, International Art of Living Faculty
           </p>
-          <h1 className="font-semibold text-xl   text-secondary">& Team</h1>
+          <h1 className="text-xl font-semibold text-secondary">& Team</h1>
         </div>
         <div className="w-[270px] h-[170px]">
           <div className="rounded-full  bg-primary w-[150px] h-[150px] relative">
             <Image
-              className="rounded-full absolute top-3 left-4"
+              className="absolute rounded-full top-3 left-4"
               src={Rashmin}
               height={150}
               width={150}
@@ -257,7 +257,7 @@ const Landing: NextPage<Props> = ({ }) => {
         >
           Highlights
         </h2>
-        <ul className="list-disc pl-8 space-y-7 text-base opacity-70 ">
+        <ul className="pl-8 text-base list-disc space-y-7 opacity-70 ">
           <li>
             Learn & Experience the world’s most powerful breathing technique -{" "}
             <span className="font-bold">Sudarshan Kriya</span>
@@ -266,15 +266,13 @@ const Landing: NextPage<Props> = ({ }) => {
             <h2 className="pl-6 my-2">Benefits of Sudarshan Kriya</h2>
             <div className="flex justify-between">
               <div
-                className="flex w-1/2
-              "
+                className="flex w-1/2 "
               >
                 <span>
                   <UpArrow />
                 </span>
                 <span
-                  className="pl-1
-                "
+                  className="pl-1 "
                 >
                   Concentration Clarity of Mind Confidence
                 </span>
@@ -284,8 +282,7 @@ const Landing: NextPage<Props> = ({ }) => {
                   <DownArrow />
                 </span>
                 <span
-                  className="pl-1
-                "
+                  className="pl-1 "
                 >
                   Stress <br /> Anxiety <br /> Overthinking
                 </span>
@@ -300,7 +297,7 @@ const Landing: NextPage<Props> = ({ }) => {
           <li>Powerful 6 days course with lifetime weekly reconnect sessions</li>
           <li>Mor - 6:30 to 9 AM  | Eve - 6:30 to 9 PM</li>
         </ul>
-        {/* <div className="w-full flex justify-center my-5">
+        {/* <div className="flex justify-center w-full my-5">
           <Button onClick={handleSubmit} />
         </div> */}
       </div>
@@ -355,13 +352,13 @@ const Landing: NextPage<Props> = ({ }) => {
       </div>
 
       <div className="w-[390px]  bg-primary h-[740px]">
-        <div className="text-center  my-8">
+        <div className="my-8 text-center">
           <Button onClick={handleSubmit} />
         </div>
-        <h2 className="text-secondary text-center text-4xl font-bold">
+        <h2 className="text-4xl font-bold text-center text-secondary">
           Photo Gallery
         </h2>
-        <div className="w-full relative px-4 ">
+        <div className="relative w-full px-4 ">
           <Image
             className="object-cover object-center h-[250px] w-[250px]  absolute top-[200px] left-[0px] rounded-full z-[5]"
             src={'/1.jpeg'}
